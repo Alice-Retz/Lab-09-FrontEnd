@@ -1,0 +1,12 @@
+ 
+body {
+  background-color: bisque;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
