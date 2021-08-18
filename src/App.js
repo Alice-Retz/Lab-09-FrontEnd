@@ -14,8 +14,8 @@ class App extends Component {
       <BrowserRouter>
           <Header />
           <Switch>
-            <Route path="/" component={AnimalList} />
-            <Route path="/animal/:id" component={AnimalDetail} />
+            <Route exact path="/" component={AnimalList} />
+            <Route path="/animals/:id" component={AnimalDetail} />
             <Route path="/create" component={Create} />
           </Switch>
         </BrowserRouter>
