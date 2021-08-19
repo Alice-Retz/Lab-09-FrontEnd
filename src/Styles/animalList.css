@@ -1,0 +1,33 @@
+.animal-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.animal-card {
+    margin: 5px;
+    padding: 10px;
+    width: 25vw;
+    border: 5px solid #313b72;
+    border-radius: 5px;
+}
+
+.animal-card img {
+    width: 100%;
+}
+
+.message {
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    height: 2rem;
+    font-size: 1.5rem;
+}
+
+.message.success {
+    background-color: #88eb4f;
+}
+
+.message.error {
+    background-color: rgb(38, 201, 212);
+}
