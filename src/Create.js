@@ -58,7 +58,7 @@ class Create extends Component {
                     > {this.state.message} </div>
                 )}
                 <h1>{this.state.name}</h1>
-                <img src={this.state.img} alt="This is where the image you input will go." />
+                <img src={this.state.img} alt="This is where the url you input will go." />
                 <form id="update-animal">
                     <div className="form-group">
                         <label>Animal Type:</label>
