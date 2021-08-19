@@ -1,6 +1,6 @@
  
 body {
-  background-color: bisque;
+  background-image: url("https://stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/stardewbackground.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -11,4 +11,22 @@ body {
 
 .animal-list {
   margin-left: 20px;
+}
+
+.links {
+  text-transform: none;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.links a {
+  color: #ffe58f;
+  text-decoration: none;
+}
+
+.links a.active,
+.links a:hover {
+  color: #88eb4f;
 }

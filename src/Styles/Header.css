@@ -18,6 +18,9 @@ header div {
     margin-right: 20px;
 }
 
+header img {
+    height: 95px;
+}
 
 .links {
     text-transform: none;
@@ -28,11 +31,11 @@ header div {
 }
 
 .links a {
-    color: #e5d4ed;
+    color: #ffe58f;
     text-decoration: none;
 }
 
 .links a.active,
 .links a:hover {
-    color: #f8f4a6;
+    color: #88eb4f;
 }
