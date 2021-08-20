@@ -3,7 +3,6 @@ const URL = 'https://floating-tundra-37035.herokuapp.com/';
 export const getAnimals = async () => {
     const resp = await fetch(`${URL}animals`);
     const data = await resp.json();
-    console.log(data);
     return data;
 };
 
@@ -21,9 +20,9 @@ export const getBuildings = async () => {
 
 export const updateAnimal = async (animalObject) => {
     const resp = await fetch(`${URL}animals/${animalObject.id}`, {
-    method: 'PUT',
-    headers: {
-        'Content-Type': 'application/json'
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
     },
     body: JSON.stringify(animalObject),
     });
