@@ -4,12 +4,13 @@ import classNames from 'classnames';
 // import './Styles/App.css';
 
 class AnimalDetail extends Component {
-    state = { id: 0, 
+    state = { 
+        id: 0, 
         name: '', 
         colors: '', 
-        building: '', 
+        building: 0, 
         buildings: [],
-        bought: '', 
+        bought: true, 
         days_to_maturity: 0, 
         produces: '', 
         img: '', 
@@ -20,17 +21,25 @@ class AnimalDetail extends Component {
         const animalId = this.props.match.params.id;
         const animalData = await getAnimal(animalId);
         const buildings = await getBuildings();
-        this.setState({ ...animalData, buildings });
+        this.setState({  
+            id: animalData.id, 
+            name: animalData.name, 
+            colors: animalData.colors, 
+            building: animalData.building_id,
+            buildings,
+            bought: animalData.bought, 
+            days_to_maturity: animalData.days_to_maturity, 
+            produces: animalData.produces, 
+            img: animalData.img
+             });
         console.log('state', this.state)
     };
-    getBuildingId = () => {
-        const buildingObject = this.state.buildings.find(
-            (build) => build.name === this.state.building
-            );
-            console.log(buildingObject);
-            console.log(this.state.building)
-            return buildingObject.id;
-    };
+    // getBuildingId = () => {
+    //     const buildingObject = this.state.buildings.find(
+    //         (build) => build.name === this.state.building
+    //         );
+    //         return buildingObject.id;
+    // };
     handleClick = async (e) => {
         e.preventDefault();
         
@@ -38,7 +47,7 @@ class AnimalDetail extends Component {
             id: this.state.id,
             name: this.state.name,
             colors: this.state.colors,
-            building_id: this.getBuildingId(),
+            building_id: this.state.building,
             bought: this.state.bought,
             days_to_maturity: this.state.days_to_maturity,
             produces: this.state.produces,
@@ -97,11 +106,11 @@ class AnimalDetail extends Component {
                         <label>Building: </label>
                         <select
                             value={this.state.building}
-                            onChange={async (e) => {await this.setState({ building: e.target.value })}}
+                            onChange={ (e) => { this.setState({ building: e.target.value })}}
                         >
                             {this.state.buildings.map((build) => {
                                 return (
-                                    <option key={build.name} value={build.name}>{build.name}</option>
+                                    <option key={build.name} value={build.id}>{build.name}</option>
                                 );
                             })}
                         </select>
