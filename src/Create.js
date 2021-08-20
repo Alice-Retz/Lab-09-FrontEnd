@@ -6,9 +6,9 @@ class Create extends Component {
     state = { 
         name: '', 
         colors: '',
+        building: 1, 
         buildings: [],
-        building: '', 
-        bought: '', 
+        bought: true, 
         days_to_maturity: '', 
         produces: '',
         img: '',
@@ -18,20 +18,14 @@ class Create extends Component {
         const buildings = await getBuildings();
         this.setState({ buildings });
     };
-
-    getBuildingId = () => {
-        const buildingObject = this.state.buildings.find(
-            (build) => build.name === this.state.building
-        );
-        return buildingObject.getBuildingId;
-    }
+    
 
     handleClick = async (e) => {
         e.preventDefault();
         const animalData = {
             name: this.state.name, 
             colors: this.state.colors,
-            building_id: this.getBuildingId(), 
+            building_id: this.state.building, 
             bought: this.state.bought, 
             days_to_maturity: this.state.days_to_maturity, 
             produces: this.state.produces,
@@ -41,7 +35,7 @@ class Create extends Component {
         if (data.error) {
             this.setState({ message: data.error, error: true });
         } else {
-            this.props.history.purchased('/');
+            this.props.history.push('/');
         }
     };
 
@@ -136,7 +130,7 @@ class Create extends Component {
                         >
                             {this.state.buildings.map((build) => {
                                 return (
-                                    <option key={build.name} value={build.name}>{build.name}</option>
+                                    <option key={build.name} value={build.id}>{build.name}</option>
                                 );
                             })}
                         </select>
